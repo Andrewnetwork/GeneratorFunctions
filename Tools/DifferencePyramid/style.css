@@ -1,0 +1,28 @@
+.element{
+    float:left;
+    margin-right: 10px;
+    background-color: bisque;
+    padding: 5px;
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.row{
+    clear: left;
+}
+
+.spacer{
+    float: left;
+    width: 10px;
+}
+
+.pyramid{
+}
+
+.controls{
+    font-size: 25px;
+}
+
+#container{
+    margin-left: 50px;
+}
