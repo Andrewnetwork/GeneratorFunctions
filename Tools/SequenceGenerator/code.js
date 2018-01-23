@@ -4,22 +4,23 @@ var tst = new Vue({
       sequence: "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987"
     },
     methods: {
-        genPyramid: function () {
-        var seqLs = this.sequence.split(",").map(x => x.replace(/\D/g,''));
-        var res = this.seqDeriv(seqLs);
+        genSequence: function () {
+        var roots = this.sequence.split(",").map(x => x.replace(/\D/g,''));
+        var res = this.seqGen(roots);
         var outHTML = this.$refs["pyramid"];
         outHTML.innerHTML = "";
         var spacer = 1;
         
-        outHTML.appendChild( this.createSeqHTML(0,seqLs) ) ;
         
+        //outHTML.appendChild( this.createSeqHTML(0,seqLs) ) ;
+        /*
         while(res){
             outHTML.appendChild( this.createSeqHTML(spacer,res) )
             res = this.seqDeriv(res);
             spacer+=1;
-        }
+        }*/
       },
-      seqDeriv : function(ls){
+      seqGen : function(ls){
         if(ls.length <= 0){
             return false;
         }
@@ -97,8 +98,6 @@ var tst = new Vue({
         this.createPriorSeqButton("0, 1, 32, 243, 1024, 3125, 7776, 16807, 32768, 59049, 100000");
         this.createPriorSeqButton("0, 1, 32, 243, 1024, 3125, 7776, 16807, 32768, 59049, 100000");
         this.createPriorSeqButton("1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1");
-        this.createPriorSeqButton("1, 2, 4, 7, 11, 16, 22, 29, 37");
-        this.createPriorSeqButton("1, 2, 4, 8, 15, 26")
         this.createPriorSeqButton("0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987");
         this.genPyramid()
     }

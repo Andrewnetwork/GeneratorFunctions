@@ -1,0 +1,59 @@
+.element{
+    float:left;
+    margin-right: 10px;
+    background-color: bisque;
+    padding: 5px;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.row{
+    clear: left;
+    overflow: visible;
+}
+
+.spacer{
+    float: left;
+    width: 10px;
+}
+
+.pyramid{
+}
+
+#controls{
+    font-size: 25px;
+    clear: left;
+}
+
+#container{
+    margin-left: 50px;
+}
+
+#inBox{
+    width:400px;
+}
+
+#priorSeq{
+    
+}
+.seq{
+    background-color: lightblue;
+    padding: 4px;
+    cursor: pointer;
+    float: left;
+    border: inset thin;
+    margin-right: 5px;
+}
+
+.xBox{
+    float: right;
+    background-color: aliceblue;
+    margin-left:5px;
+    padding-left:2px;
+    padding-right:2px;
+    color: red;
+}
+
+.seqText{
+    float: left;
+}
