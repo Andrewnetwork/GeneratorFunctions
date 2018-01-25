@@ -17,7 +17,8 @@ import Gen
 zipLsTup tup = zip (fst tup) (snd tup)
 pairDiff tup = (snd tup) - (fst tup)
 
-pairSeqDerivs l1 l2 = seqDerivs (map pairDiff (zip (seqDeriv l1) (seqDeriv l2)))
+pairSeqDiff l1 l2 = (map pairDiff (zip l1 l2))
+pairSeqDerivs l1 l2 = seqDerivs (pairSeqDiff l1 l2)
 --pairSeqDeriv l1 l2 = map (map pairDiff) (map zipLsTup (zip (seqDerivs l1) (seqDerivs l2)))
 
 {--
