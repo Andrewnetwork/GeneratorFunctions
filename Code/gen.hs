@@ -16,6 +16,7 @@
     In the case of more complex sequences like the sequence of the natural numbers squared,
     [0,1,4,9,16,+∞], the root is 2 deep and requires 2+1 examples of the sequence to converge.
 --}
+module Gen(deriveSeqLayer,deriveSeqLayer',genSeq,genSeq',funcModel) where
 import CommonFn
 
 deriveSeqLayer :: Num a => [a] -> a -> [a]
