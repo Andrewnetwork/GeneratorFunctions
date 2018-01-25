@@ -15,21 +15,15 @@
     In the case of more complex sequences like the sequence of the natural numbers squared,
     [0,1,4,9,16,+∞], the root is 2 deep and requires 2+1 examples of the sequence to converge.
 --}
+import CommonFn
 
 m1 x = x - 1
 
--- tail': returns empty list if list argument is empty. 
-tail' [] = []
-tail' ls = tail ls
-
--- lsf: leaf seed function. 
--- rv: root value
 deriveSeqLayer root rv =  reverse (deriveSeqLayer' (reverse root) rv )
 
 deriveSeqLayer' [] rv = [rv]
 deriveSeqLayer' root rv  = ((head previous)+(head root)):previous
                            where previous = (deriveSeqLayer' (tail' root) rv)
--- deriveSeqLayer'  [2,2,2,2] 1
 
 genSeq rootVal classVect nTerms = last (genSeq' (take (nTerms-1) (cycle [rootVal]) ) classVect)
 
@@ -37,10 +31,5 @@ genSeq' root [] = []
 genSeq' root classVect = [layer] ++ ( genSeq' layer (tail' classVect) )
                          where layer = (deriveSeqLayer root (head classVect))
 
-{--
-    
-
-     genSeq' [24,24,24,24,24,24] [36,14,1,0]
-     genSeq 24 [36,14,1,0] 4
-
---}
+funcModel ls = (\x -> genSeq root classVect x )
+               where (root,classVect) = iVect ls

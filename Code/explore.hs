@@ -14,6 +14,8 @@
     values. A series can be defined by some successor function.  
     Ex: [1,2,3,4], [2,4,6]
 --}
+import CommonFn
+
 colin a b = a:b
 -- [1,2,3,4,5,6] is constructed via 1:2:3:4:5:6:[]
 -- colin 1 (colin 2 (colin 3 ( colin 4 (colin 5 ( colin 6 [] ) ) ) ) )
@@ -23,11 +25,6 @@ genNatNum s n
     | s > n = []
     | otherwise = s:(genNatNum (succ s) n) 
 
-windows _ [] = []
-windows n (x:xs)
-    | (length xs) > (n-2) = [x:(take (n-1) xs)]++(windows n xs)
-    | otherwise = []
-
 -- Derivitive of a Sequence. 
 
 -- Def. The derivitve of a sequence A is a sequence of the differences 
@@ -36,8 +33,6 @@ windows n (x:xs)
 -- In the taylor series, the derivitives of a function can be used to approximate it. 
 -- We wish to produce an approximation method for sequences. 
 -- In order to do this, we will work with the derivitive of a sequence as defined here. 
-
-seqDeriv ls = map (\ls -> (last ls) - (head ls) ) ( windows 2 ls )
 -- seqDeriv [1,2,3,4]
 -- seqDeriv [2,4,6,8]
 -- seqDeriv [5,1,3,9]
